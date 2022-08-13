@@ -8,7 +8,8 @@ public class Main {
         spellings.buildTrie(trainText);
 
         // Pull test text and print spellcheck result 
-        String test = args[0];
+        //String test = args[0];
+        String test = "world";
         boolean result = spellings.checkTrie(test);
         System.out.println(result);
     }

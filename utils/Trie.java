@@ -11,7 +11,7 @@ class Trie {
     // Adds single word to Trie
     public void addWord(String word) {
         Node curNode = root;
-        for (int i = word.length(); i>=0; i--) {
+        for (int i = word.length()-1; i>=0; i--) {
             char curLetter = word.charAt(i);
             int curAscii = ((int) curLetter)-((int) 'a');
 
@@ -44,7 +44,7 @@ class Trie {
     // Checks if word exists in Trie
     public boolean checkTrie (String word) {
         Node curNode = root;
-        for (int j=word.length(); j>=0; j--) {
+        for (int j=word.length()-1; j>=0; j--) {
             char curLetter = word.charAt(j);
             int curAscii = ((int) curLetter)-((int) 'a');
             
