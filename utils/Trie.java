@@ -1,27 +1,61 @@
-import Node;
-import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 class Trie {
     public Node root;
 
-    public Trie (Node root) {
-        this.root = root;
+    public Trie () {
+        this.root = new Node('0');
     }
 
-    public static void addWord(String word, Node root) {
+    // Adds single word to Trie
+    public void addWord(String word) {
         Node curNode = root;
-        for (int i = word.length; i>=0; i--) {
-            // if curLetter is curNode value, stay
-            // elif curLetter is in curNode children go to that node
-            // else add curLetter to curNode children and go to that node
+        for (int i = word.length(); i>=0; i--) {
+            char curLetter = word.charAt(i);
+            int curAscii = ((int) curLetter)-((int) 'a');
+
+            // if curLetter is in curNode's children go to that node
+            if (curNode.children.get(curAscii)!=null) {
+                curNode = curNode.children.get(curAscii);
+            } else {
+                // else add curLetter to curNode's children and go to that node
+                curNode.children.set(curAscii, new Node(curLetter));
+                curNode = curNode.children.get(curAscii);
+            }
         }
     }
 
-    public static String buildTrie (File trainText) {
-        Scanner textReader = new Scanner(trainText);
-        while (textReader.hasNextLine()) {
-            String word = textReader.nextLine();
-            addWord(word);
+    // Builds Trie word by word, pulling words from a word-per-line text file
+    public void buildTrie (File trainText) {
+        try {
+            Scanner textReader = new Scanner(trainText);
+            while (textReader.hasNextLine()) {
+                String word = textReader.nextLine();
+                addWord(word);
+            }
+            textReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found.");
+            e.printStackTrace();
         }
+    }
+
+    // Checks if word exists in Trie
+    public boolean checkTrie (String word) {
+        Node curNode = root;
+        for (int j=word.length(); j>=0; j--) {
+            char curLetter = word.charAt(j);
+            int curAscii = ((int) curLetter)-((int) 'a');
+            
+            // word, as spelled, is not found
+            if (curNode.children.get(curAscii)==null) {
+                return false;
+            } else {
+                curNode = curNode.children.get(curAscii);
+            }
+        }
+        // word, as spelled, is found
+        return true;
     }
 }
