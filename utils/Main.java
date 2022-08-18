@@ -7,10 +7,11 @@ public class Main {
         Trie spellings = new Trie();
         spellings.buildTrie(trainText);
 
-        // Pull test text and print spellcheck result 
-        //String test = args[0];
-        String test = "world";
-        boolean result = spellings.checkTrie(test);
-        System.out.println(result);
+        // Pull test text and spelcheck text
+        File checkTextFile = new File("/Users/marcusmartinez/cli-spellcheck/utils/text.txt");
+        Text checkText = new Text(checkTextFile);
+        checkText.spellcheck(spellings);
+        // TODO add check for default when using args
+        checkText.outputCorrections("/Users/marcusmartinez/cli-spellcheck/utils/out.txt");
     }
 }
