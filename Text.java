@@ -10,6 +10,7 @@ class Text {
         this.checkedContent = new ArrayList<>();
     }
 
+    // Pulls text from file to be checked to initialize content variable
     public List<String> parseFile (File textFile) {
         List<String> textContent = new ArrayList<>();
 
@@ -28,6 +29,7 @@ class Text {
         return textContent;
     }
 
+    // Checks text against the spellcheck Trie
     public void spellcheck (Trie spellings) {
         for (int i = 0; i<=content.size()-1; i++) {
             String word = content.get(i);
@@ -45,6 +47,7 @@ class Text {
         }
     }
 
+    // Writes results to file
     public void outputCorrections (String filename) {
         try {
             File output = new File(filename);
