@@ -48,29 +48,34 @@ class Text {
     }
 
     // Writes results to file
-    public void outputCorrections (String filename) {
-        try {
-            File output = new File(filename);
-            if (!output.createNewFile()) {
-                if (!output.delete()) {
-                    System.out.println("File could not be created! Try a new filename.");
-                    return;
-                }
-                output.createNewFile();
-            }
-
+    public void outputCorrections (String filename, boolean print) {
+        if (!print) {
             try {
-                FileWriter textWriter = new FileWriter(filename);
-                String outputContent = String.join(" ", checkedContent);
-                textWriter.write(outputContent);
-                textWriter.close();
+                File output = new File(filename);
+                if (!output.createNewFile()) {
+                    if (!output.delete()) {
+                        System.out.println("File could not be created! Try a new filename.");
+                        return;
+                    }
+                    output.createNewFile();
+                }
+
+                try {
+                    FileWriter textWriter = new FileWriter(filename);
+                    String outputContent = String.join(" ", checkedContent);
+                    textWriter.write(outputContent);
+                    textWriter.close();
+                } catch (IOException e) {
+                    System.out.println("Results could not be output!");
+                    e.printStackTrace();
+                }
             } catch (IOException e) {
-                System.out.println("Results could not be output!");
+                System.out.println("File could not be created!");
                 e.printStackTrace();
             }
-        } catch (IOException e) {
-            System.out.println("File could not be created!");
-            e.printStackTrace();
+        } else {
+            String outputContent = String.join(" ", checkedContent);
+            System.out.println(outputContent);
         }
     }
 }
