@@ -7,7 +7,7 @@ public class Main {
         if (args.length>=1) {
             trainText = new File(args[0]);
         } else {
-            trainText = new File(".utils/train.txt");
+            trainText = new File("../utils/train.txt");
         }
         Trie spellings = new Trie();
         spellings.buildTrie(trainText);
@@ -17,7 +17,7 @@ public class Main {
         if (args.length>=2) {
             checkTextFile = new File(args[1]);
         } else {
-            checkTextFile = new File(".utils/text.txt");
+            checkTextFile = new File("../utils/text.txt");
         }
         Text checkText = new Text(checkTextFile);
         checkText.spellcheck(spellings);
@@ -27,7 +27,7 @@ public class Main {
         if (args.length>=3) {
             filename = args[2];
         } else {
-            filename = ".utils/out.txt";
+            filename = "../utils/out.txt";
         }
         checkText.outputCorrections(filename);
     }
