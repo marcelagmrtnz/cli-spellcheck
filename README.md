@@ -24,7 +24,7 @@ Bravo
 Charlie
 ```
 
-### Executing the Code
+### Execute the Code
 ```
 java -jar Spellcheck.jar [training_file] [text_file] [output_filename]
 ```
