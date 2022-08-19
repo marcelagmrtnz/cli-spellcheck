@@ -1,5 +1,5 @@
 # cli-spellcheck
-Simple command line tool to spellcheck files created with terminal text editors, or otherwise basic text files.
+Simple command line tool to spellcheck files created with terminal text editors, or otherwise basic text files. Written in Java, and utilizes the Trie data structure as a representation of an approved list of correctly spelled words, which can be checked against at runtime.
 
 ## System Requirements
 - Java 1.8.0_201+
