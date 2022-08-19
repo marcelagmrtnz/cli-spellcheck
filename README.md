@@ -48,13 +48,16 @@ However, punctuation, numbers, etc. will be preserved in the output, just ignore
 so the system is not perfect and results should be reviewed.
 
 Here's an example of input and expected output.
-```
+
 **Input**
+
+```
 Hello World! This si a system tht checks yur spelling.
 ```
 
-```
 **Output**
+
+```
 Hello World! This *[si]* a system *[tht]* checks *[yur]* spelling.
 ```
 
