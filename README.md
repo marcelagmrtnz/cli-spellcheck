@@ -4,13 +4,8 @@ Simple command line tool to spellcheck files created with terminal text editors,
 ## System Requirements
 - Java 1.8.0_201+
 
-## System Set-Up
-
-### Compile Code
-The easiest way to use the system is to run the provided executable jar file ```Spellcheck.jar```, according to the instructions in **Running the System**. However, it is simple to compile everything and get an easy to use executable by running the following build script. The rest of these instructions assume you have either done so, and have the resulting binaries/jar file, or are using the provided jar file.
-```
-./build.sh
-```
+## Running the System
+The easiest way to use the system is to run the provided executable jar file ```Spellcheck.jar```. This method is detailed in the following. If you'd like to re-compile the binaries/jar file for yourself, follow the instructions in **Compiling** below. Note that you will still need to download or provide a word list, as detailed in **Download a Word List**.
 
 ### Download a Word List
 The system depends on a new line delimited (one word-per-line) text file with the vocabulary you want to represent your correctly-spelled word list.
@@ -29,7 +24,7 @@ Bravo
 Charlie
 ```
 
-## Running the System
+### Executing the Code
 ```
 java -jar Spellcheck.jar [training_file] [text_file] [output_filename]
 ```
@@ -37,7 +32,7 @@ java -jar Spellcheck.jar [training_file] [text_file] [output_filename]
 - ```text_file``` specififes the text file that needs to be spellchecked
 - ```output_filename``` specifies the title/location you want for the final text. By default the system prints to the terminal
 
-## Output Format
+### Output Format
 The system will output your original text with ```*[ ]*``` surrounding any words misspelled, or not recognized by the system.
 The system makes an assumption that the text the Trie is trained with is alphabetic characters only, and so removes non-alphabetic characters from the words as they are processed.
 However, punctuation, numbers, etc. will be preserved in the output, just ignored at comparison time. This leads to some quirks with hyphenated words being treated as singular words,
@@ -55,6 +50,11 @@ Hello World! This si a system tht checks yur spelling.
 
 ```
 Hello World! This *[si]* a system *[tht]* checks *[yur]* spelling.
+```
+## Compiling
+It is much easier to use the provided jar file and follow the instructions in **Running the System**. However, it is simple to compile everything and get an easy to use executable by running the following build script.
+```
+./build.sh
 ```
 
 ## Future Updates
