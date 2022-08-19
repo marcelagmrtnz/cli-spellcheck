@@ -7,8 +7,9 @@ Simple command line tool to spellcheck files created with terminal text editors,
 ## System Set-Up
 
 ### Compile Code
+The easiest way to compile everything and get an easy to use executable is to run the following build script. The rest of these instructions assume you have done so, and have the resulting binaries/jar file.
 ```
-javac -cp /src /src/Main.java
+./build.sh
 ```
 
 ### Download a Word List
@@ -29,13 +30,8 @@ Charlie
 ```
 
 ## Running the System
-The easiest way to run the system is with the provided bash script. You can also use java directly, but in that case it must be run from within the src directory.
-Be sure to adjust your filepaths correctly, as both the bash script and java methods assume your current directory is the src directory.
-So, if your files were in the root directory, you would need to pass in ```../file.txt```.
-
 ```
-./spellcheck.sh [training_file] [text_file] [output_filename]
-java Main [training_file] [text_file] [output_filename]
+java -jar Spellcheck.jar [training_file] [text_file] [output_filename]
 ```
 - ```training_file``` specifies the word list to build the spellcheck Trie from
 - ```text_file``` specififes the text file that needs to be spellchecked
