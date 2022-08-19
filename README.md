@@ -64,5 +64,8 @@ Hello World! This *[si]* a system *[tht]* checks *[yur]* spelling.
 ## Future Updates
 - Implementing terminal nodes and backtracking/caching to allow for replacement suggestions in addition to identifying typos
 
+## Known Issues
+- Sometimes newlines create some odd instances of the system not recognizing a word.
+
 ## Credits
 - [dwyl/english_words](https://github.com/dwyl/english-words)
