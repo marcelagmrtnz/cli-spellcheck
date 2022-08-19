@@ -7,7 +7,7 @@ Simple command line tool to spellcheck files created with terminal text editors,
 ## System Set-Up
 
 ### Compile Code
-The easiest way to compile everything and get an easy to use executable is to run the following build script. The rest of these instructions assume you have done so, and have the resulting binaries/jar file.
+The easiest way to use the system is to run the provided executable jar file ```Spellcheck.jar```, according to the instructions in **Running the System**. However, it is simple to compile everything and get an easy to use executable by running the following build script. The rest of these instructions assume you have either done so, and have the resulting binaries/jar file, or are using the provided jar file.
 ```
 ./build.sh
 ```
